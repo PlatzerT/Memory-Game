@@ -4,7 +4,6 @@ import app.Modes.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import org.junit.jupiter.params.provider.EnumSource;
 
 import java.util.*;
 
@@ -64,6 +63,7 @@ public class Game implements EventHandler<MouseEvent>
         board.fillBoardWithCards(cards);
         //fillPlayers
         board.fillPlayers(players);
+        //Call method revealAllCards if the mode is easy
         if (mode instanceof EasyMode)
         {
             ((EasyMode) mode).revealAllCards(cards);

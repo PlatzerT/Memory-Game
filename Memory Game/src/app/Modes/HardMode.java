@@ -26,7 +26,7 @@ public class HardMode implements Mode {
             if (game.isGameFinished())
             {
                 game.createRanking();
-                game.board.reArrangePlayers(game.ranking);
+                game.board.showEndScreen(game.ranking);
             }
             return;
         }

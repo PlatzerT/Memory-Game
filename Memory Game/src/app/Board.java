@@ -1,7 +1,10 @@
 package app;
 
+import javafx.application.Platform;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class Board extends BorderPane
 {
@@ -30,6 +33,48 @@ public class Board extends BorderPane
             playerGrid.getChildren().add(players[i]);
             VBox.setVgrow(players[i], Priority.ALWAYS);
         }
+    }
+
+    public void showEndScreen(Player[] ranking)
+    {
+        reArrangePlayers(ranking);
+        getChildren().remove(boardGrid);
+
+        setCenter(getExitButton());
+    }
+
+    //Set an exit button
+    public Button getExitButton()
+    {
+        Button exit = new Button("Exit");
+        exit.setStyle(
+                "-fx-background-color: #218000;" +
+                "-fx-font-size: 2em;"
+        );
+        exit.setOnMouseEntered(e ->
+        {
+            exit.setStyle(
+                    "-fx-background-color: #123500;" +
+                    "-fx-font-size: 2em;"
+            );
+        });
+        exit.setOnMouseExited(e ->
+        {
+            exit.setStyle(
+                    "-fx-background-color: #218000;" +
+                            "-fx-font-size: 2em;" +
+                            "-fx-opacity: 1;"
+            );
+        });
+        exit.setTextFill(Color.WHITE);
+        exit.setPadding(new Insets(10.0, 25.0, 10.0, 25.0));
+        //We have to do that because of the child threads, which are created in this program
+        exit.setOnAction(e ->
+        {
+            Platform.exit();
+            System.exit(0);
+        });
+        return exit;
     }
 
     //Display ranking
