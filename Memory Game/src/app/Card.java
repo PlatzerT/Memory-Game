@@ -11,17 +11,15 @@ import javafx.util.Duration;
 
 public class Card extends Label
 {
-    private Image back;
     private Image front;
-    private Image blank;
+    private final Image back = new Image(getClass().getResourceAsStream("../images/pepega.png"));;
+    private final Image blank = new Image(getClass().getResourceAsStream("../images/emptyImage.png"));;
     private int cardId;
     private final int flipAnimationDuration = 300; //ms
     private Status status;
 
     public Card(String path, int cardId)
     {
-        back = new Image(getClass().getResourceAsStream("../images/pepega.png"));
-        blank = new Image(getClass().getResourceAsStream("../images/emptyImage.png"));
         if (path == null)
         {
             this.setGraphic(new ImageView(blank));

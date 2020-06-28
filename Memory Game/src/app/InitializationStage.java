@@ -17,11 +17,11 @@ public class InitializationStage extends Stage
     private int bs; //equivalent to boardSize
     private Modes inputMode;
 
-    private int MAX_BOARD_SIZE = 8;
-    private int MIN_BOARD_SIZE = 3;
+    private final int MAX_BOARD_SIZE = 8;
+    private final int MIN_BOARD_SIZE = 3;
 
-    private int MAX_NOP = 4;
-    private int MIN_NOP = 1;
+    private final int MAX_NOP = 4;
+    private final int MIN_NOP = 1;
 
     public InitializationStage()
     {
